@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KORA 是外国人在中国的 AI 本地向导，帮助外国人在中国处理吃喝玩乐、获取高德导航链接、中文沟通和旅途中的实用提示。">
+  <title>KORA — 外国人在中国的 AI 本地向导</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main>
+
+    <!-- Section 1: KORA 是什么 -->
+    <section id="hero" data-animate>
+      <div class="section-inner">
+        <div class="hero-tags">
+          <span class="tag">上海深度体验</span>
+          <span class="tag">全国实时可用</span>
+          <span class="tag">高德导航链接</span>
+          <span class="tag">少量精选推荐</span>
+        </div>
+        <h1 class="hero-title">KORA 是外国人在中国的 AI 本地向导</h1>
+        <p class="hero-subtitle">它帮助外国人在中国处理吃喝玩乐、获取高德导航链接、中文沟通和旅途中的实用提示。它不是复制旅游攻略，也不是传统机器人客服，而是把"在中国怎么吃喝玩乐、怎么搞定出行"变成可以直接提问、尽量直接行动的答案。</p>
+        <p class="hero-accent">KORA 不是在替中国人解决问题，而是在替外国人理解中国。</p>
+      </div>
+    </section>
+
+    <!-- Section 2: 为什么需要 KORA -->
+    <section id="why" data-animate>
+      <div class="section-inner">
+        <h2>中国人习以为常的事，对外国人是一套复杂系统</h2>
+        <div class="compare-grid">
+          <div class="compare-col">
+            <p>对中国人来说，找餐厅用大众点评，导航用高德，付款用微信或支付宝，打车用滴滴，似乎都是很自然的事。</p>
+          </div>
+          <div class="compare-col">
+            <p>但对刚到中国的外国人来说，这些并不是一个顺畅的生活流程，而是一套分散、陌生、需要学习的系统。</p>
+            <p>他们不知道该从哪里找店，不确定地址是否真实，看不懂中文菜单，也不知道哪些推荐真的适合自己，哪些只是游客热门。</p>
+          </div>
+        </div>
+        <p class="why-summary">KORA 做的事情，就是把"在中国怎么吃喝玩乐、怎么搞定出行"变成一句可以直接问的话。</p>
+        <p class="emphasis">外国人不需要先学会所有中国本地应用，才能开始理解中国。</p>
+      </div>
+    </section>
+
+    <!-- Section 3: KORA 怎么工作 -->
+    <section id="demo" data-animate>
+      <div class="section-inner">
+        <h2>一句话，得到可以直接行动的城市答案</h2>
+        <p class="demo-intro">用户不需要填写复杂表单，也不需要在多个应用之间来回切换。只要告诉 KORA 自己在哪里、想做什么、预算多少、有没有偏好或限制。</p>
+
+        <div class="chat-container">
+          <!-- 用户消息 -->
+          <div class="chat-bubble chat-bubble--user" data-chat="1">
+            <div class="bubble-content">
+              <p>I'm near the Bund tonight. I want a local dinner spot, not too touristy, around RMB 200 per person. I don't read Chinese well, so please give me the Chinese name/address, an Amap link, and one sentence I can show a taxi or Didi driver.</p>
+            </div>
+          </div>
+
+          <!-- typing indicator -->
+          <div class="chat-bubble chat-bubble--bot chat-bubble--typing" data-chat="2">
+            <div class="bubble-content">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </div>
+          </div>
+
+          <!-- 推荐 1 -->
+          <div class="chat-bubble chat-bubble--bot" data-chat="3">
+            <div class="bubble-content">
+              <div class="rec-card">
+                <h3 class="rec-name">沪公馆·上海菜</h3>
+                <div class="rec-meta">
+                  <span class="rec-rating">4.6 分</span>
+                  <span class="rec-price">人均约 98 元</span>
+                </div>
+                <p class="rec-desc">本帮菜，位置靠近外滩，适合想吃上海本地菜但不想太正式的游客。</p>
+                <p class="rec-address">地址：九江路80号2层</p>
+                <a class="rec-link" href="#" target="_blank" rel="noopener">导航：高德链接</a>
+                <p class="rec-driver">给司机看：师傅您好，请送我去九江路80号「沪公馆」，谢谢！</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 推荐 2 -->
+          <div class="chat-bubble chat-bubble--bot" data-chat="4">
+            <div class="bubble-content">
+              <div class="rec-card">
+                <h3 class="rec-name">外滩往事·民国上海菜</h3>
+                <div class="rec-meta">
+                  <span class="rec-rating">4.5 分</span>
+                  <span class="rec-price">人均约 87 元</span>
+                </div>
+                <p class="rec-desc">老上海风格，适合第一次来上海、想感受外滩附近本地氛围的人。</p>
+                <p class="rec-address">地址：四川中路218号</p>
+                <a class="rec-link" href="#" target="_blank" rel="noopener">导航：高德链接</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 推荐 3 -->
+          <div class="chat-bubble chat-bubble--bot" data-chat="5">
+            <div class="bubble-content">
+              <div class="rec-card">
+                <h3 class="rec-name">浦江老饭店</h3>
+                <div class="rec-meta">
+                  <span class="rec-rating">4.5 分</span>
+                  <span class="rec-price">人均约 76 元</span>
+                </div>
+                <p class="rec-desc">家常本帮菜，价格更低，适合想吃实在一点的本地晚餐。</p>
+                <p class="rec-address">地址：九江路230号103室</p>
+                <a class="rec-link" href="#" target="_blank" rel="noopener">导航：高德链接</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 补充提醒 -->
+          <div class="chat-bubble chat-bubble--bot chat-bubble--notice" data-chat="6">
+            <div class="bubble-content">
+              <p>营业时间来自静态地图数据，不保证实时营业，去前建议电话确认。部分本地小店可能不支持外国信用卡，建议提前准备支付宝或微信支付。</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="demo-closing">KORA 给出的不是一串搜索结果，而是经过筛选、解释和整理后的行动方案。</p>
+      </div>
+    </section>
+
+    <!-- Section 4: 为什么是 KORA -->
+    <section id="features" data-animate>
+      <div class="section-inner">
+        <h2>它不只是回答问题，而是帮外国人做判断</h2>
+        <div class="features-grid">
+          <div class="feature-card" data-stagger="1">
+            <h3>少量、高质量、有理由的推荐</h3>
+            <p>KORA 不把十几个结果丢给用户自己判断。它会根据位置、预算、口味、场景和忌口等信息，筛出 2-3 个更适合当前需求的选择，并说明为什么适合。</p>
+          </div>
+          <div class="feature-card" data-stagger="2">
+            <h3>每个答案都尽量落到行动</h3>
+            <p>外国人真正需要的不是"上海有很多好吃的"，而是今晚该去哪、中文店名和地址是什么、怎么打开高德导航、预算是否合适、要不要提前打电话、怎么用中文沟通。</p>
+          </div>
+          <div class="feature-card" data-stagger="3">
+            <h3>懂中国，也懂外国人卡在哪里</h3>
+            <p>很多问题对中国人不是问题，但对外国人就是门槛。中文地址、店铺重名、支付方式、点菜方式、过敏说明、司机沟通，这些都需要被翻译成可用的答案。</p>
+          </div>
+        </div>
+        <p class="features-summary">KORA 的价值不是提供更多信息，而是减少外国人在中国做决定时的不确定性。</p>
+      </div>
+    </section>
+
+    <!-- Section 5: KORA 在哪里可用 -->
+    <section id="coverage" data-animate>
+      <div class="section-inner">
+        <h2>上海体验最深，全国也能实时使用</h2>
+        <p>KORA 最擅长上海。这里有更深的本地数据库和判断，能更好地区分真正值得去的地方和游客陷阱。</p>
+        <p>但 KORA 不只服务上海。外国人在中国其他城市，也可以通过实时搜索获得可用的店铺信息、真实地址、高德导航链接和本地建议，只是深度不及上海。</p>
+        <p class="emphasis">上海是 KORA 的深度样板，全国是 KORA 的实时服务范围。</p>
+      </div>
+    </section>
+
+    <!-- Section 6: 如何开始使用 KORA -->
+    <section id="start" data-animate>
+      <div class="section-inner">
+        <h2>打开对话，就可以开始问</h2>
+        <ol class="steps-list">
+          <li data-stagger="1">
+            <div class="step-content">
+              <h3>第一步：通过 Telegram 使用 KORA</h3>
+              <p>KORA 目前通过海外用户熟悉的聊天入口使用，不需要单独学习复杂的新系统。</p>
+            </div>
+          </li>
+          <li data-stagger="2">
+            <div class="step-content">
+              <h3>第二步：搜索 KORA</h3>
+              <p>搜索 <strong>@Kora_china_bot</strong>，进入 KORA 对话窗口。注意认准拼写，避免进入仿冒账号。</p>
+            </div>
+          </li>
+          <li data-stagger="3">
+            <div class="step-content">
+              <h3>第三步：直接说出需求</h3>
+              <p>告诉它你在哪个城市、附近位置、想吃什么或想去哪、预算多少、有没有忌口。KORA 会把这些信息整理成尽量可以直接行动的建议。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="section-inner">
+      <p>KORA — 外国人在中国的 AI 本地向导</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
