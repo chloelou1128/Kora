@@ -49,9 +49,12 @@
   --space-4xl: 6rem;
 
   /* 布局 */
-  --content-max-width: 800px;
-  --content-narrow: 640px;
+  --content-max-width: 960px;
+  --content-narrow: 680px;
   --section-padding: var(--space-4xl) var(--space-xl);
+
+  /* stagger 延迟（JS 动态设置） */
+  --stagger-delay: 0s;
 
   /* 圆角 */
   --radius-sm: 6px;
@@ -131,11 +134,12 @@ section {
   transform: translateY(0);
 }
 
-/* data-stagger 元素也使用相同的淡入动效 */
+/* data-stagger：延迟由 JS 通过 --stagger-delay 控制 */
 [data-stagger] {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  transition: opacity 0.5s var(--ease-out) var(--stagger-delay),
+              transform 0.5s var(--ease-out) var(--stagger-delay);
 }
 
 [data-stagger].visible {
@@ -145,18 +149,20 @@ section {
 
 /* ---------- 排版 ---------- */
 h1 {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.2rem, 4.5vw, 3rem);
   font-weight: 700;
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 h2 {
-  font-size: var(--font-size-2xl);
+  font-size: clamp(0.9rem, 3.2vw, 2.5rem);
   font-weight: 700;
   line-height: var(--line-height-tight);
   letter-spacing: -0.01em;
   margin-bottom: var(--space-xl);
+  white-space: nowrap;
 }
 
 h3 {
@@ -496,12 +502,6 @@ footer {
 
 /* 平板及以下 */
 @media (max-width: 1024px) {
-  :root {
-    --font-size-3xl: 2.5rem;
-    --font-size-2xl: 2rem;
-    --font-size-xl: 1.75rem;
-  }
-
   .features-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -515,9 +515,6 @@ footer {
 /* 手机 */
 @media (max-width: 768px) {
   :root {
-    --font-size-3xl: 2rem;
-    --font-size-2xl: 1.75rem;
-    --font-size-lg: 1.25rem;
     --section-padding: var(--space-3xl) var(--space-lg);
   }
 
@@ -541,9 +538,5 @@ footer {
   .tag {
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--font-size-xs);
-  }
-
-  h2 {
-    margin-bottom: var(--space-lg);
   }
 }
