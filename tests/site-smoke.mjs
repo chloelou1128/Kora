@@ -16,7 +16,8 @@ assert.ok(!html.includes('cover-brand-lockup'), 'homepage should remove the cent
 assert.match(html, /class="[^"]*\bhero-title-lockup\b/, 'homepage should use a title plus 3D mascot lockup');
 assert.match(html, /class="[^"]*\bhero-mascot-sitter\b/, 'homepage should place a sitting 3D IP on the title');
 assert.match(html, /kora-3d-mascot-sitting-title-v1\.png/, 'homepage should use the sitting 3D IP asset');
-assert.match(html, /在中国旅行，餐厅推荐？语言不通？找不到路？问KORA！/, 'homepage subtitle should use the updated language-barrier copy');
+assert.match(html, /<p class="hero-subtitle" data-stagger="2">\s*<span class="hero-subtitle-line">外国人来中国旅行<\/span>\s*<span class="hero-subtitle-line">餐厅推荐？语言不通？找不到路？<\/span>\s*<span class="hero-subtitle-line">问KORA！<\/span>\s*<\/p>/, 'homepage subtitle should split into the requested three mobile lines');
+assert.ok(!html.includes('在中国旅行，餐厅推荐？语言不通？找不到路？问KORA！'), 'homepage subtitle should not use the old unstructured one-line copy');
 assert.ok(!html.includes('沟通不畅'), 'homepage subtitle should not use the old communication-friction phrase');
 assert.match(css, /\.hero-title-lockup\s*{[^}]*margin:\s*200px auto 0/s, 'hero title group should move higher under the mascot hand');
 assert.match(css, /\.hero-title-lockup\s*{[^}]*padding-top:\s*128px/s, 'hero title should move up enough for the mascot legs to overlap it');
@@ -41,7 +42,7 @@ for (const logoAbbrev of ['<span>点</span>', '<span>高</span>', '<span>美</sp
 assert.match(css, /\.app-logo\s*{[^}]*place-items:\s*center/s, 'app tiles should center the app names');
 assert.match(html, /class="[^"]*\bapp-journey\b/, 'why section should show the restaurant search journey across apps');
 assert.match(html, /class="[^"]*\bworkflow-grid\b/, 'workflow should use a board grid');
-assert.match(html, /<h2>KORA，<span class="no-break">给你最称心意的旅行答案<\/span><\/h2>/, 'workflow headline should use the new KORA travel answer copy');
+assert.match(html, /<h2>KORA，<span class="no-break">答案更称心<\/span><\/h2>/, 'workflow headline should be short enough for mobile');
 for (const workflowTitle of ['场景定制', '理解卡点', '行动建议']) {
   assert.match(html, new RegExp(`<h3>${workflowTitle}</h3>`), `workflow should include ${workflowTitle}`);
 }
@@ -99,6 +100,9 @@ for (const cityName of ['哈尔滨', '新疆', '四川', '海南', '北京']) {
 }
 assert.match(css, /@keyframes\s+coverageArcFlow/, 'coverage arcs should animate');
 assert.match(css, /\.board-coverage\.visible\.is-replaying-map\s+\.coverage-arcs\s*{[^}]*scale\(1\)/s, 'coverage arcs should expand to full map scale when replaying');
+assert.match(css, /@media\s*\(max-width:\s*430px\)[\s\S]*?\.china-map,\s*[\s\S]*?\.coverage-arcs,\s*[\s\S]*?\.coverage-overlay\s*{[^}]*width:\s*min\(108vw,\s*420px\)/s, 'mobile coverage map should be larger inside the phone viewport');
+assert.match(css, /@media\s*\(max-width:\s*430px\)[\s\S]*?\.coverage-mascot\s*{[^}]*width:\s*72px/s, 'mobile coverage mascot should shrink so it does not cover city labels');
+assert.match(css, /@media\s*\(max-width:\s*430px\)[\s\S]*?\.city-pill\s*{[^}]*z-index:\s*12/s, 'mobile city labels should render above the mascot');
 assert.match(html, /kora-3d-mascot-guide-cutout\.png/, 'coverage mascot should use a transparent cutout asset');
 assert.ok(existsSync(new URL('../assets/generated/kora-3d-mascot-guide-cutout.png', import.meta.url)), 'transparent guide mascot asset should exist');
 
