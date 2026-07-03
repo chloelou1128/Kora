@@ -5,6 +5,8 @@ import { strict as assert } from 'node:assert';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../css/style.css', import.meta.url), 'utf8');
 const js = readFileSync(new URL('../js/main.js', import.meta.url), 'utf8');
+const firstMediaIndex = css.indexOf('@media');
+const baseCss = firstMediaIndex === -1 ? css : css.slice(0, firstMediaIndex);
 
 for (const sectionId of ['hero', 'why', 'demo', 'features', 'coverage', 'start']) {
   assert.match(html, new RegExp(`<section id="${sectionId}"`), `missing section: ${sectionId}`);
@@ -19,6 +21,9 @@ assert.match(html, /kora-3d-mascot-sitting-title-v1\.png/, 'homepage should use 
 assert.match(html, /<p class="hero-subtitle" data-stagger="2">\s*<span class="hero-subtitle-line">外国人来中国旅行<\/span>\s*<span class="hero-subtitle-line">餐厅推荐？语言不通？找不到路？<\/span>\s*<span class="hero-subtitle-line">问KORA！<\/span>\s*<\/p>/, 'homepage subtitle should split into the requested three mobile lines');
 assert.ok(!html.includes('在中国旅行，餐厅推荐？语言不通？找不到路？问KORA！'), 'homepage subtitle should not use the old unstructured one-line copy');
 assert.ok(!html.includes('沟通不畅'), 'homepage subtitle should not use the old communication-friction phrase');
+assert.match(baseCss, /\.hero-subtitle-line\s*{[^}]*display:\s*block/s, 'homepage subtitle lines should always be block-level');
+assert.match(baseCss, /\.hero-subtitle-line\s*{[^}]*white-space:\s*nowrap/s, 'homepage subtitle lines should not internally wrap');
+assert.match(baseCss, /\.hero-subtitle-line\s*\+\s*\.hero-subtitle-line\s*{[^}]*margin-left:\s*0/s, 'subtitle lines should not rely on inline spacing between spans');
 assert.match(css, /\.hero-title-lockup\s*{[^}]*margin:\s*200px auto 0/s, 'hero title group should move higher under the mascot hand');
 assert.match(css, /\.hero-title-lockup\s*{[^}]*padding-top:\s*128px/s, 'hero title should move up enough for the mascot legs to overlap it');
 assert.ok(!html.includes('hero-showcase'), 'homepage should no longer include a phone showcase');
